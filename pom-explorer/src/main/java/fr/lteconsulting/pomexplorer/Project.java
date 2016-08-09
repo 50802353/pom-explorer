@@ -95,7 +95,12 @@ public class Project
 		String version = project.getVersion() != null ? project.getVersion() : getParent().getVersion();
 		if( "${parent.version}".equals( version ) )
 			version = getParent().getVersion();
-
+		
+		if (version.startsWith("${")){
+			MavenProject parentProj = readPomFile(new File(pomFile.getParent(),parent.getRelativePath()));
+			version = parentProj.getProperties().getProperty(version.substring(2, version.length()-1));
+		}
+		
 		gav = new Gav( groupId, project.getArtifactId(), version );
 
 		if( !gav.isResolved() )

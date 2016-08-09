@@ -30,7 +30,7 @@ public class Session
 {
 	private String mavenSettingsFilePath = null;
 
-	private String mavenShellCommand = "C:\\Program Files (x86)\\apache-maven-3.1.1\\bin\\mvn.bat";
+	private String mavenShellCommand = "D:\\Dev_Tools\\apache-maven-3.3.9\\bin\\mvn";
 
 	private final GitRepositories gitRepositories = new GitRepositories();
 
